@@ -1,0 +1,155 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 1337093) exited normally]
+Breakpoint 1 at 0x122a: file main.cpp, line 9.
+Breakpoint 2 at 0x122a: file main.cpp, line 9.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+At main.cpp:7
+x = 0
+[Inferior 1 (process 1345595) exited normally]
+Breakpoint 1 at 0x122a: file main.cpp, line 9.
+Breakpoint 2 at 0x122a: file main.cpp, line 9.
+Breakpoint 3 at 0x122a: file main.cpp, line 9.
+Breakpoint 4 at 0x1242: file main.cpp, line 12.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+At main.cpp:7
+x = 0
+At main.cpp:12
+x = 10
+[Inferior 1 (process 1351986) exited normally]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 1379584) exited normally]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 1383390) exited normally]
+Breakpoint 1 at 0x11d8: file main.cpp, line 4.
+Breakpoint 2 at 0x11d8: file main.cpp, line 4.
+Breakpoint 3 at 0x11d8: file main.cpp, line 4.
+Breakpoint 4 at 0x11e0: file main.cpp, line 5.
+Breakpoint 5 at 0x121b: file main.cpp, line 6.
+Breakpoint 6 at 0x122a: file main.cpp, line 9.
+Breakpoint 7 at 0x122a: file main.cpp, line 9.
+Breakpoint 8 at 0x1231: file main.cpp, line 10.
+Breakpoint 9 at 0x123b: file main.cpp, line 11.
+Breakpoint 10 at 0x1242: file main.cpp, line 12.
+Breakpoint 11 at 0x124c: file main.cpp, line 13.
+Breakpoint 12 at 0x1251: main.cpp:14. (3 locations)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 12, _GLOBAL__sub_I__Z3fooi () at main.cpp:14
+14	}
+trace.gdb:75: Error in sourced command file:
+Undefined command: "silent".  Try "help".
+Breakpoint 1 at 0x11d8: file main.cpp, line 4.
+Breakpoint 2 at 0x11d8: file main.cpp, line 4.
+Breakpoint 3 at 0x11d8: file main.cpp, line 4.
+Breakpoint 4 at 0x11e0: file main.cpp, line 5.
+Breakpoint 5 at 0x121b: file main.cpp, line 6.
+Breakpoint 6 at 0x122a: file main.cpp, line 9.
+Breakpoint 7 at 0x122a: file main.cpp, line 9.
+Breakpoint 8 at 0x1231: file main.cpp, line 10.
+Breakpoint 9 at 0x123b: file main.cpp, line 11.
+Breakpoint 10 at 0x1242: file main.cpp, line 12.
+Breakpoint 11 at 0x124c: file main.cpp, line 13.
+Breakpoint 12 at 0x1251: main.cpp:14. (3 locations)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+At main.cpp:14
+No locals.
+At main.cpp:14
+No locals.
+At main.cpp:8
+x = 0
+At main.cpp:10
+x = 5
+At main.cpp:1
+b = 0
+At main.cpp:5
+b = 10
+At main.cpp:6
+b = 10
+At main.cpp:11
+x = 5
+At main.cpp:12
+x = 10
+At main.cpp:1
+b = 10
+At main.cpp:5
+b = 20
+At main.cpp:6
+b = 20
+At main.cpp:13
+x = 10
+At main.cpp:14
+x = 10
+[Inferior 1 (process 1415728) exited normally]
+Breakpoint 1 at 0x1174: file main.cpp, line 4.
+Breakpoint 2 at 0x1174: file main.cpp, line 4.
+Breakpoint 3 at 0x1174: file main.cpp, line 4.
+Breakpoint 4 at 0x117c: file main.cpp, line 5.
+Breakpoint 5 at 0x117f: file main.cpp, line 6.
+Breakpoint 6 at 0x118d: file main.cpp, line 9.
+Breakpoint 7 at 0x118d: file main.cpp, line 9.
+Breakpoint 8 at 0x1194: file main.cpp, line 10.
+Breakpoint 9 at 0x11a1: file main.cpp, line 11.
+Breakpoint 10 at 0x11ac: file main.cpp, line 12.
+Breakpoint 11 at 0x11b4: file main.cpp, line 13.
+Breakpoint 12 at 0x11c1: file main.cpp, line 14.
+Breakpoint 13 at 0x11c7: file main.cpp, line 16.
+Breakpoint 14 at 0x11c7: file main.cpp, line 16.
+Breakpoint 15 at 0x11cc: main.cpp:17. (3 locations)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+At main.cpp:17
+No locals.
+At main.cpp:17
+No locals.
+At main.cpp:8
+x = 0
+b = 0
+c = 0
+At main.cpp:10
+x = 5
+b = 0
+c = 0
+At main.cpp:1
+b = 0
+At main.cpp:5
+b = 10
+At main.cpp:6
+b = 10
+At main.cpp:11
+x = 5
+b = 10
+c = 0
+At main.cpp:12
+x = 5
+b = 10
+c = 15
+At main.cpp:13
+x = 5
+b = 10
+c = 15
+At main.cpp:1
+b = 10
+At main.cpp:5
+b = 20
+At main.cpp:6
+b = 20
+At main.cpp:14
+x = 5
+b = 10
+c = 20
+At main.cpp:15
+x = 5
+b = 10
+c = 25
+At main.cpp:17
+x = 5
+b = 10
+c = 25
+[Inferior 1 (process 1433973) exited normally]

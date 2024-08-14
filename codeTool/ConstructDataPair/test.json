@@ -1,0 +1,24 @@
+[
+    {
+        "user_id": "u705427370",
+        "problem_id": "p02880",
+        "submission1_id": "s988790729",
+        "submission2_id": "s319005221",
+        "status1": "Wrong Answer",
+        "status2": "Accepted",
+        "code1": "n = int(input())\n\nL = set()\nfor i in range(1,10):\n    for j in range(1,10):\n        result = i*j\n        L.add(result)\nprint(L)\n\nif n in L:\n    print(\"Yes\")\nelif n not in L:\n    print(\"No\")",
+        "code2": "n = int(input())\n\nL = set()\nfor i in range(1,10):\n    for j in range(1,10):\n        result = i*j\n        L.add(result)\nif n in L:\n    print(\"Yes\")\nelif n not in L:\n    print(\"No\")",
+        "original_language1": "Python (3.4.3)",
+        "original_language2": "Python (3.4.3)",
+        "date1": 1586378389,
+        "date2": 1586378755,
+        "bleu_score": 0.941633138225789,
+        "code1_test_status": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "code1_test_score": 0,
+        "TotalScore": 20,
+        "diff_content": "for i in range(1,10):\n     for j in range(1,10):\n         result = i*j\n         L.add(result)\n-print(L)\n-\n if n in L:\n     print(\"Yes\")\n elif n not in L:\n",
+        "added_lines": 0,
+        "removed_lines": 2,
+        "code1_lines": 13
+    }
+]

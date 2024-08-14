@@ -1,0 +1,44 @@
+[
+    {
+        "submission1_id": "S324109094",
+        "submission2_id": "S459822627",
+        "status1": "Wrong Answer",
+        "status2": "Accepted",
+        "code1": "\n\n\n\nli = []\nfor x in range(3):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "code2": "\n\n\n\nli = []\nfor x in range(10):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "original_language1": "Python3",
+        "original_language2": "Python3",
+        "date1": 1410776608,
+        "date2": 1410776776,
+        "bleu_score": 0.974890996887752,
+        "code1_test_status": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+        "submission1_id": "S324109094",
+        "submission2_id": "S459822627",
+        "status1": "Wrong Answer",
+        "status2": "Accepted",
+        "code1": "\n\n\n\nli = []\nfor x in range(3):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "code2": "\n\n\n\nli = []\nfor x in range(10):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "original_language1": "Python3",
+        "original_language2": "Python3",
+        "date1": 1410776608,
+        "date2": 1410776776,
+        "bleu_score": 0.974890996887752,
+        "code1_test_status": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+        "submission1_id": "S324109094",
+        "submission2_id": "S459822627",
+        "status1": "Wrong Answer",
+        "status2": "Accepted",
+        "code1": "\n\n\n\nli = []\nfor x in range(3):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "code2": "\n\n\n\nli = []\nfor x in range(10):\n    s = input()\n    s = int(s)\n    li.append(s)\n\n",
+        "original_language1": "Python3",
+        "original_language2": "Python3",
+        "date1": 1410776608,
+        "date2": 1410776776,
+        "bleu_score": 0.974890996887752,
+        "code1_test_status": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+]
