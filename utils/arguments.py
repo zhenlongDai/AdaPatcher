@@ -154,7 +154,7 @@ class train_config(TrainingArguments):
     language : str = field(default="Python",metadata={"help": "language data."})   
     
     problem_path: str = field(
-        default="./repairDataset/Program_Question_Data/English_Program_Question_StringVersion5.json",
+        default="./repairDataset/Program_Question_Data/English_Program_Question_StringVersion.json",
         metadata={"help": "the path to load data."}
     )   
     

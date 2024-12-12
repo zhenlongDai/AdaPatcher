@@ -2,7 +2,7 @@ from codeTool.utlis.utils import load_list_from_json
 import json
 import argparse
 
-def count_matching_scores(file_path, pattern, ChooseSID_path, second_eval_pattern):
+def count_matching_scores(file_path, pattern, ChooseSID_path, second_eval_pattern, length):
     data = load_list_from_json(file_path)
     count = 0
     TotalCount = 0
@@ -47,6 +47,9 @@ def count_matching_scores(file_path, pattern, ChooseSID_path, second_eval_patter
                         Total_overall_rate +=  (s-b)*1.0/(s+a-b)       
             TotalCount += 1
             continue
+        
+        if item['code1_lines'] < length:
+            continue
 
         if RR_TAG == True:
             if item['added_lines'] == 0 and item['removed_lines'] == 0:
@@ -84,16 +87,16 @@ def count_matching_scores(file_path, pattern, ChooseSID_path, second_eval_patter
         print(f"TotalCount = {TotalCount}")
         print(f"Total_overall_rate = {Total_overall_rate}")
         print(f"avg_overall_rate = {avg_overall_rate}")
-        print(f"avg_AC_overall_rate = {avg_AC_overall_rate}")
-        print(f'avg_retention_rate = {avg_retention_rate}')
-        print(f'avg_AC_retention_rate = {avg_AC_retention_rate}')
+        # print(f"avg_AC_overall_rate = {avg_AC_overall_rate}")
+        # print(f'avg_retention_rate = {avg_retention_rate}')
+        # print(f'avg_AC_retention_rate = {avg_AC_retention_rate}')
         print(f"same_count= {same_count}")
-        print(f"same_count_in_AC= {same_count_in_AC}")
+        #print(f"same_count_in_AC= {same_count_in_AC}")
         print("-------")
 
     print(f'TotalCount = {TotalCount}')
     rate = count*1.0 /TotalCount
-    print(f'rate = {rate}')
+    print(f'ACC rate = {rate}')
     return count
 
 def cal_rate(baseResultList, newResultList, TotalScore, base_test_score):
@@ -217,9 +220,9 @@ if __name__ == "__main__":
     parser.add_argument('--eval_pattern', type=str, default='dev', required=True, help='eval_pattern:test/dev')
     parser.add_argument('--second_eval_pattern', type=str, default='dev_1', required=True, help='dev_1:origin dev_1:predict dev_1:mix')
     parser.add_argument('--ChooseSID_path', type=str, default='./predict_dir/baseline/trace_baseline_result.json', required=False, help='eval base ChooseSID') 
-    
+    parser.add_argument('--ChooseLength', type=int, default='10', required=False, help='code lines large than it') 
     args = parser.parse_args()
 
-    matching_count = count_matching_scores(args.file_path, args.eval_pattern, args.ChooseSID_path, args.second_eval_pattern)
+    matching_count = count_matching_scores(args.file_path, args.eval_pattern, args.ChooseSID_path, args.second_eval_pattern, args.ChooseLength)
     print(f'Number of elements with code_test_score == TotalScore and TotalScore != 0 is {matching_count}')
     cal_improve_rate(data_path = args.data_path, file_path = args.file_path, pattern= args.eval_pattern,ChooseSID_path = args.ChooseSID_path, second_eval_pattern = args.second_eval_pattern)

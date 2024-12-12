@@ -221,7 +221,8 @@ def Compute_retention_rate(data1,data2,output_file,compare_file, add_flag=False)
             if code1_lines>=25 and retention_rate<=0.15:
                 data["flag"]=False
                 count+=1
-            
+            else:
+                data["flag"]=True
 
         result.append(data)
         i += 1

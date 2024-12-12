@@ -70,14 +70,15 @@ class EvalProcess:
         Compile_File_name = f"{submission1_id}.py"
         CodeContent =  item["code_content"]
         Psubmit = Program_Submission(Compile_File_name, CodeContent, self.language)
-        self.worker.Run_Program_By_One_All_Point(Psubmit, Test_List, deBug = False)
+        
+        self.worker.Run_Program_By_One_All_Point(Psubmit, Test_List, deBug = False) #hhh
         self.checker.Check_Run_Result(Psubmit, Test_List)
         self.AddPsubmitResult2item(Psubmit,item)
         return item
     
         
     def ProcessAllData(self):
-        with multiprocessing.Pool(processes=8) as pool:  # 设置进程池大小为8
+        with multiprocessing.Pool(processes=4) as pool:  # 设置进程池大小为8
             ResultDataList =  list(tqdm(pool.imap(self.Process_For_Single_EvalObject, self.EvalOject_List), total=len(self.EvalOject_List), desc="Processing elements"))
 
         save_data_to_json(ResultDataList, self.resotreFile_Path)
@@ -91,6 +92,7 @@ class EvalProcess:
         save_data_to_json(ResultDataList, self.resotreFile_Path)
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(description="Evaluation Code Generation Script")
     parser.add_argument('--EvalOject_Path', type=str, default="", required=True, help='Input data for evaluation')
     parser.add_argument('--test_directory_prefix_url', type=str, default="/data/develop/dzl/CodeDatasets/merged_test_cases/", help='test cases directory')
@@ -103,5 +105,6 @@ if __name__ == "__main__":
         process = EvalProcess(EvalOject_Path = args.EvalOject_Path, \
                               test_directory_prefix_url = args.test_directory_prefix_url,\
                               Write_prefix_url = args.Write_prefix_url  )
+
         #process.ProcessAllData_Sequential_Execution()
         process.ProcessAllData()

@@ -72,29 +72,6 @@ def main(**kwargs):
                 "pad_token": "<PAD>",
             }
         ) 
-    #print(f"tokenizer.pad_token ={tokenizer.pad_token }")
-    #print(f"tokenizer.eos_token ={tokenizer.eos_token }")
-    #input()
-    # if args.prompt_pattern == "diff":
-    #     # 自定义新词汇
-    #     new_tokens = ["<+>", "<->"]
-    #     # 添加新词汇到tokenizer
-    #     tokenizer.add_tokens(new_tokens)  
-       
-    #打印结果
-    # if rank == 0:
-    #     print(tokenizer.special_tokens_map)
-    #     print(tokenizer.convert_ids_to_tokens(tokenizer.encode("<BOS> hello <PAD> <+> <-> <EOS>")))    
-    #     # 查看新词汇和特殊标记的ID
-    #     bos_id = tokenizer.convert_tokens_to_ids('<BOS>')
-    #     eos_id = tokenizer.convert_tokens_to_ids('<EOS>')
-    #     pad_id = tokenizer.convert_tokens_to_ids('<PAD>')
-    #     new_tokens_ids = tokenizer.convert_tokens_to_ids(new_tokens)
-    #     # 打印结果
-    #     print(f"ID of '<BOS>': {bos_id}")
-    #     print(f"ID of '<EOS>': {eos_id}")
-    #     print(f"ID of '<PAD>': {pad_id}")
-    #     print(f"IDs of new tokens {new_tokens}: {new_tokens_ids}")
   
     #tokenizer.pad_token = tokenizer.eos_token
     # load data

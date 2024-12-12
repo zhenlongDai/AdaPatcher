@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 从命令行参数获取循环次数
-begin_iterations=1400
+begin_iterations=1600
 end_iterations=1600
-PORT=61200
+PORT=61600
 DEVPORT=$((PORT + 10))
 gpu_seq=4,5,6,7
 gpu_seq2eval=4,5,6,7
@@ -11,14 +11,14 @@ gpu_seq2test=4,5,6,7
 PATTERN="dev" 
 SAVE_STEPS=100
 eval_steps=100
-Version="DPOP_Fix_ND3Direct"
-model_name_or_path="./output_dir/DirectFixCodeLlama"
+Version="DPOP_Fix_ND3V1"
+model_name_or_path="./output_dir/fix_codeLlama"
 SECOND_PROMPT_PATTERN="fixbycrflp"
 PerferDATA_FILE="dataNew/FixPerferdataset3"
 DATA_FILE="CRFLPDataset"
 test_CRPdata_path="./predict_dir/loraWeight/trace_CRFLP/test-checkpoint-14000.json"
 resume=False
-num_train_epochs=30
+num_train_epochs=10
 train_batch_size=2
 eval_batch_size=2
 test_batch_size=1 
@@ -27,10 +27,10 @@ train_mode="DPOP"
 
 debug_mode=False
 train_status=False
-dev_second_status=False
+dev_second_status=true
 Exec_status=False
-statistic_status=true
-test_status=true
+statistic_status=False
+test_status=False
 
 # 获取 GPU 个数
 IFS=',' read -ra GPU_ARRAY <<< "$gpu_seq"
@@ -78,7 +78,7 @@ if [ "$dev_second_status" = "true" ]; then
     fi
 
     echo ">>>start eval dev to fix buggy code by fixModel"
-    bash ./script/pipeline/part/recyle_eval2PerferFix.sh "$end_iterations" "$PATTERN" "$begin_iterations" "$eval_steps" "$SECOND_PROMPT_PATTERN" \
+    bash ./script/pipeline/part/recyle_eval2PerferFix.sh "$end_iterations" "$PATTERN" "$begin_iterations" "$SAVE_STEPS" "$SECOND_PROMPT_PATTERN" \
     "$DATA_FILE" "$gpu_seq2eval" "$DEVPORT" "$eval_batch_size" "$Version" "False" "None"
 fi
 
@@ -93,7 +93,7 @@ if [ "$Exec_status" = "true" ]; then
         mkdir -p "$file_path"
     fi
     echo ">>>start Execution" 
-    bash ./script/pipeline/part/recyle_Execution2Perfer.sh "$end_iterations" "$PATTERN" "$begin_iterations" "$eval_steps" "$Version-GEN"
+    bash ./script/pipeline/part/recyle_Execution2Perfer.sh "$end_iterations" "$PATTERN" "$begin_iterations" "$SAVE_STEPS" "$Version-GEN"
 fi
 #需要通过genbycpr执行得到结果
 
@@ -103,7 +103,7 @@ if [ "$statistic_status" = "true" ]; then
     best_iteration=0
     echo ">>>start choose best dev rate value"
     # 遍历迭代范围，执行脚本并捕获输出
-    for ((i=begin_iterations; i<=end_iterations; i+=eval_steps)); do
+    for ((i=begin_iterations; i<=end_iterations; i+=SAVE_STEPS)); do
         output=$(bash ./script/pipeline/part/Statistical_Execution_Results.sh "$Version-GEN" "$PATTERN" "$i")
         echo "$output"
         #从输出中提取 rate 值
@@ -127,11 +127,11 @@ if [ "$test_status" = "true" ]; then
 
     echo ">>>start Eval TEST to gengeration  $best_iteration"
     
-    bash ./script/pipeline/part/recyle_eval2PerferFix.sh "$best_iteration" "test" "$best_iteration" "$eval_steps" "$SECOND_PROMPT_PATTERN"\
+    bash ./script/pipeline/part/recyle_eval2PerferFix.sh "$best_iteration" "test" "$best_iteration" "$SAVE_STEPS" "$SECOND_PROMPT_PATTERN"\
      "$DATA_FILE" "$gpu_seq2test" "$DEVPORT" "$test_batch_size" "$Version" "True" "$test_CRPdata_path"
    
     echo ">>>start Execution For TESt" 
-    bash ./script/pipeline/part/recyle_Execution2Perfer.sh "$best_iteration" "test" "$best_iteration" "$eval_steps" "$Version-GEN"
+    bash ./script/pipeline/part/recyle_Execution2Perfer.sh "$best_iteration" "test" "$best_iteration" "$SAVE_STEPS" "$Version-GEN"
     echo ">>>start Statistic Execution Result For TEST"
     bash ./script/pipeline/part/Statistical_Execution_Results.sh "$Version-GEN" "test" "$best_iteration"
 fi

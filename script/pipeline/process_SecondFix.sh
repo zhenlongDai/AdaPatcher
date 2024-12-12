@@ -14,7 +14,6 @@ SAVE_STEPS=2000
 
 #dev_CRPdata_path="./predict_dir/loraWeight/trace_CRFLP/dev-checkpoint-14000.json"
 test_CRPdata_path="./predict_dir/loraWeight/trace_CRFLP/test-checkpoint-14000.json"
-#test_CRPdata_path="./predict_dir/loraWeight/CRFLP/test-checkpoint-16000.json"
 INPUT_DIR="None"
 resume=False
 PROMPT_PATTERN="fixbycrflp"

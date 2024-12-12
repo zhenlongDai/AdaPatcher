@@ -85,7 +85,7 @@ class Quesion_Test_Point_objectList:
             print(str(self.Tlist[2]))
 class Worker: #可重入
     def __init__(self):
-        self.url_prefix = 'http://192.168.7.151:5050/'
+        self.url_prefix = 'http://127.0.0.1:5050/'
         self.apimanager = APIManager(self.url_prefix)
     
     def Extract_Compile_Information(self, Compile_Result_Data, Psubmit):
@@ -114,7 +114,7 @@ class Worker: #可重入
             if deBug == True:
                 print(type(Compile_Result_Data))
                 print(Compile_Result_Data)
-                #input()
+                input()
             self.Extract_Compile_Information(Compile_Result_Data[0], Psubmit)
         
         #如果编译成功则执行程序

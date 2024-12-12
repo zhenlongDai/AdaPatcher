@@ -2,8 +2,8 @@ import requests
 import json
 import copy
 # 目标 URL 前缀
-url_prefix = 'http://192.168.7.151:5050/'
-#url_prefix = 'http://127.0.0.1:5050/'
+#url_prefix = 'http://192.168.7.151:5050/'
+url_prefix = 'http://127.0.0.1:5050/'
 class APIManager: #可重入
     def __init__(self, url_prefix):
         self.url_prefix = url_prefix
@@ -170,7 +170,7 @@ class APIManager: #可重入
 
 
 if __name__ == '__main__':
-    TEST_COMPILE = False
+    TEST_COMPILE = True
     TEST_GET_FILE_ID = False
     TEST_EXCUTE_FILE = False
     TEST_COMPILE_AND_EXCUTE = True

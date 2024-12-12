@@ -1,30 +1,33 @@
-### 创建实例
+### Create an docker instance for code execution
 
-下载地址：https://github.com/criyle/go-judge?tab=readme-ov-file
+#### 1. Download docker image
+Download address://github.com/criyle/go-judge?tab=readme-ov-file
 
-#### 创建一个docker实例，终止后自动删除实例 
-'''
-sudo docker run -it --rm --privileged --shm-size=256m -p 5050:5050 --name=go-judge criyle/go-judge
-'''
-
-'''
+#### 2. Create a docker instance
+```
 sudo docker run -it --privileged --shm-size=256m -p 5050:5050 --name=go-judge criyle/go-judge
-'''
+```
 
-#### 用于在运行中的 Docker 容器内执行操作
-'''
+#### 3. Install the Python environment
+
+```
+apt update && apt install python3
+```
+
+#### For performing operations inside a running Docker container (if needed)
+```
 docker exec -it go-judge /bin/bash
-'''
-#### 重启 
-
-'''
+```
+#### Restart (if necessary)
+```
 sudo docker restart go-judge 
-'''
+```
 
-### 使用说明
-1.修改RunProgramAndTestPostion.py中的content与测试点所在目录
+### Instructions for use
+#### A simple usage example
+1.Modify codecontent and test points in the directory (test_directory) in codeTool.ExecutiveProgram.TestExample.RunProgramAndTestPostion.Py 
 
-2.在CodeTool/目录下,执行以下命令：
-'''
+2.In the CodeTool/ directory, run the following command:
+```
 python -m ExecutiveProgram.TestExample.RunProgramAndTestPostion
-'''
+```

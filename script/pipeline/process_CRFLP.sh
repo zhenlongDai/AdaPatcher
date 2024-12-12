@@ -20,7 +20,7 @@ num_train_epochs=10
 train_batch_size=4
 eval_batch_size=3
 test_batch_size=1
-newloss_pattern=False #改成True
+newloss_pattern=False 
 debug_mode=False
 # 获取 GPU 个数
 IFS=',' read -ra GPU_ARRAY <<< "$gpu_seq"
@@ -71,7 +71,6 @@ fi
 echo ">>>start Execution" 
 bash ./script/pipeline/part/recyle_Execution.sh "$end_iterations" "$PATTERN" "$begin_iterations" "$SAVE_STEPS" "$PROMPT_PATTERN-GEN"
 
-#需要通过genbycpr执行得到结果
 
 
 #初始化最大 rate 和对应的 i

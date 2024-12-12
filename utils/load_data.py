@@ -168,6 +168,7 @@ class TextDataset(Dataset):
                 }
             
     
+    
 class processClass:
     def __init__(self):
         return 
@@ -176,7 +177,7 @@ class processClass:
         if prompt_pattern == "normal":
             instruction =B_SYS + f"Given a programming question and a corresponding piece of buggy code written in {language}, please correct the code by modifying the provided buggy code."+ E_SYS \
                 + f"Programming question: {problem_content}"\
-                + f"Buggy code:\n```\n{BuggyCode}```\n"
+                + f"Buggy code:\n```\n{BuggyCode}```\n" + E_SYS
             if is_test:
                 text = f"{B_INST} {instruction} {E_INST}"
             else:
